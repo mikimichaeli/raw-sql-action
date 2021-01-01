@@ -19,5 +19,4 @@ jobs:
     # Use the output from the `hello` step
     - name: Diff
       run: |
-        output=$(git diff HEAD^ HEAD)
-        echo $output
+        git diff HEAD^ HEAD
