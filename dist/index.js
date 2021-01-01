@@ -30,8 +30,7 @@ try {
         myError += data.toString();
     }
   };
-  await exec.exec('pwd', options);
-  await exec.exec('git status', options);
+  exec.exec('pwd', options).then(t=>exec.exec('git status', options).then(t2=>console.log('###t2',t2)));
   console.log('@@@@@@');
   console.log(myOutput);
   console.log('@@@', myError);
