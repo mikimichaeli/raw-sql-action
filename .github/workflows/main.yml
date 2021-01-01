@@ -9,11 +9,15 @@ jobs:
     name: A job to say hello
     steps:
     - uses: actions/checkout@v2
-    - name: Hello world action step
-      id: hello
-      uses: mikimichaeli/raw-sql-action@knexjs-raw-dialect
       with:
-        who-to-greet: 'Mona the Octocat'
+        fetch-depth: 2
+    # - name: Hello world action step
+    #   id: hello
+    #   uses: mikimichaeli/raw-sql-action@knexjs-raw-dialect
+    #   with:
+    #     who-to-greet: 'Mona the Octocat'
     # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+    - name: Diff
+      run: |
+        output=$(git diff HEAD^ HEAD)
+        echo $output
